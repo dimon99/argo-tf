@@ -7,15 +7,16 @@ spec:
   project: default
   source:
     chart: custom-metric
-    repoURL: git@github.com:dimon99/argo-tf.git
-    path: 'custom-metric'
-    targetRevision: 'v2'
+    repoURL: https://github.com/dimon99/argo-tf
+    path: custom-metric
+    targetRevision: HEAD
     helm:
       releaseName: custom-metric
+      valueFiles:
+        - values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: 'default'
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true
