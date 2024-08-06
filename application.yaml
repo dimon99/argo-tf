@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: custom-metric
+  namespace: default
+spec:
+  project: default
+  source:
+    chart: custom-metric
+    repoURL: 'https://github.com/dimon99/argo-tf'
+    path: 'custom-metric'
+    targetRevision: 'v2'
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: 'default'
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
