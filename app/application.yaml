@@ -10,6 +10,8 @@ spec:
     repoURL: 'https://github.com/dimon99/argo-tf'
     path: 'custom-metric'
     targetRevision: 'v2'
+    helm:
+      releaseName: custom-metric
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: 'default'

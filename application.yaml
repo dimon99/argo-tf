@@ -7,9 +7,11 @@ spec:
   project: default
   source:
     chart: custom-metric
-    repoURL: 'https://github.com/dimon99/argo-tf'
+    repoURL: git@github.com:dimon99/argo-tf.git
     path: 'custom-metric'
     targetRevision: 'v2'
+    helm:
+      releaseName: custom-metric
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: 'default'
