@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     chart: custom-metric
-    repoURL: https://github.com/dimon99/argo-tf
+    repoURL: https://github.com/dimon99/argo-tf.git
     path: custom-metric
     targetRevision: HEAD
     helm:
@@ -15,8 +15,5 @@ spec:
       valueFiles:
         - values.yaml
   destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: 'default'
-  syncPolicy:
-    automated:
-      prune: true
+    server: https://kubernetes.default.svc
+    namespace: default
