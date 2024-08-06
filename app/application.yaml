@@ -1,19 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: custom-metric
-  namespace: default
+  name: guestbook
+  namespace: argocd
 spec:
   project: default
   source:
-    chart: custom-metric
-    repoURL: https://github.com/dimon99/argo-tf.git
-    path: custom-metric
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
     targetRevision: HEAD
-    helm:
-      releaseName: custom-metric
-      valueFiles:
-        - values.yaml
+    path: guestbook
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: guestbook
