@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  annotations:
+    release: {{ .Values.prometheus_release }}
+  labels:
+    {{- include "custom-metric.labels" . | nindent 4 }}
+  name: {{ .Chart.Name }}
+spec:
+  groups:
+  - name: {{ .Chart.Name }}
+    rules:
+     {{- toYaml .Values.monitoring_rule | nindent 4 }}
